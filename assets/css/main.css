@@ -2126,7 +2126,7 @@
 /* Wrapper */
 
 	.wrapper {
-	background-color: 1f1f1f;
+	background-color: #1f1f1f;
 	margin: 0 0 2em 0;
 	padding: 6em 0 6em 0;
 	}
@@ -2425,11 +2425,6 @@
 		background: #061626;
 		color: #fff;
 	}
-
-		#footer .icon.circled {
-			background: #fff;
-			color: #2b252c;
-		}
 
 		#footer header {
 			text-align: center;

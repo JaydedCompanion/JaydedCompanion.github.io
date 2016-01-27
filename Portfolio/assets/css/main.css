@@ -760,6 +760,37 @@
 
 /* List */
 
+	ul.icons {
+		position: relative;
+		background: rgba(128, 128, 128, 0.05);
+		border-radius: 4em;
+		display: inline-block;
+		padding: 0.35em 0.75em 0.35em 0.75em;
+		font-size: 1.25em;
+		cursor: default;
+	}
+
+	ul.icons li {
+		list-style: disc;
+		display: inline-block;
+	}
+
+		ul.icons li a {
+			display: inline-block;
+			background: none;
+			width: 2.5em;
+			height: 2.5em;
+			line-height: 2.5em;
+			text-align: center;
+			border-radius: 100%;
+			border: 0;
+			color: inherit;
+		}
+
+			ul.icons li a:hover {
+color: #50B2FB;
+			}
+
 	ul.default {
 		list-style: disc;
 		padding-left: 1em;
@@ -1354,7 +1385,7 @@
 		-moz-user-select: none;
 		-ms-user-select: none;
 		-webkit-user-select: none;
-		background: #1f2224;
+		background: #1f1f1f;
 		bottom: -1em;
 		height: 5em;
 		left: 0;
@@ -1422,7 +1453,7 @@
 					}
 
 						#header nav > ul > li a.icon:before {
-							color: #505051;
+							color: #1f1f1f;
 							float: right;
 							margin-left: 0.75em;
 						}
@@ -1432,7 +1463,7 @@
 						}
 
 						#header nav > ul > li a.active {
-							background-color: #242629;
+							background-color: #061626;
 						}
 
 	@media screen and (max-width: 736px) {
@@ -1943,6 +1974,13 @@
 
 /* Footer */
 
+	#footer {
+		overflow: hidden;
+		padding: 6em 0 6em 0;
+		background: #061626;
+		color: #fff;
+	}
+
 	#footer .copyright {
 		color: #505051;
 		font-size: 0.9em;
@@ -1950,7 +1988,7 @@
 
 		#footer .icon.circled {
 			background: #fff;
-			color: #2b252c;
+			color: #061626;
 		}
 
 		#footer header {
@@ -1961,6 +1999,7 @@
 		#footer h2, #footer h3, #footer h4, #footer h5, #footer h6 {
 			color: #fff;
 		}
+		
 		#footer .copyright {
 			text-align: center;
 			color: rgba(128, 128, 128, 0.75);
