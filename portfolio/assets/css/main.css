@@ -980,6 +980,7 @@ color: #50B2FB;
 		position: fixed;
 		width: 100%;
 		z-index: 10001;
+		align-contents:center;
 	}
 
 		.panel.active {
@@ -1463,7 +1464,7 @@ color: #50B2FB;
 						}
 
 						#header nav > ul > li a.active {
-							background-color: #061626;
+							background-color: #282828;
 						}
 
 	@media screen and (max-width: 736px) {
@@ -1977,8 +1978,9 @@ color: #50B2FB;
 	#footer {
 		overflow: hidden;
 		padding: 6em 0 6em 0;
-		background: #061626;
+		background: #282828;
 		color: #fff;
+			text-align: center;
 	}
 
 	#footer .copyright {
@@ -1988,7 +1990,7 @@ color: #50B2FB;
 
 		#footer .icon.circled {
 			background: #fff;
-			color: #061626;
+			color: #282828;
 		}
 
 		#footer header {
