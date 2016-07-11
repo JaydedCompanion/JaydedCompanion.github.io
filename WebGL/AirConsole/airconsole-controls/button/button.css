@@ -11,25 +11,25 @@
 
 
 
-.button-300-150-attack {
+.button-300-150:nth-child(1) {
     background-image: url('button-300-150-attack.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
 
-.button-300-150-attack.button-active {
+.button-300-150.button-active:nth-child(1) {
     background-image: url('button-300-150-attack-active.png');
 }
 
-.button-300-150-thrust {
+.button-300-150:nth-child(2) {
     background-image: url('button-300-150-thrust.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
 
-.button-300-150-thrust.button-active {
+.button-300-150.button-active:nth-child(2) {
     background-image: url('button-300-150-thrust-active.png');
 }
 
@@ -54,15 +54,32 @@
     color: white;
 }
 
-.button-80 {
-    background-image: url('button-80.png');
+.button-80:nth-child(1) {
+    background-image: url('button-80-restart.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
 
-.button-80.button-active {
-    background-image: url('button-80-active.png');
+.button-80.button-active:nth-child(1) {
+    background-image: url('button-80-restart-active.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.button-80:nth-child(2) {
+    background-image: url('button-80-pause.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.button-80.button-active:nth-child(2) {
+    background-image: url('button-80-pause-active.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 }
 
 .button-80.button-active .button-text {
