@@ -1751,6 +1751,7 @@
 		}
 
 		.image.featured {
+			border-radius: 10px;
 			display: block;
 			width: 100%;
 			margin: 0 0 4em 0;
@@ -2743,6 +2744,7 @@
 		/* Image */
 
 			.image.featured {
+				border-radius: 10px;
 				margin: 0 0 2em 0;
 			}
 
