@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<!--
+	Aerial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>SpaceBot Knights</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+	<body class="loading">
+		<video controls></video>
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
+            
+            <img src="assets/css/images/char.l.png" id = "LockLeft">
+            
+            <img src="assets/css/images/char.r.png" id = "LockRight">
+
+				<!-- Header -->
+                
+              <header id="header">
+                
+                    <img width="30%" src="assets/css/images/Logo.png">
+                    
+                    <p>The second game by Halfcloud</p>
+                    <p>with music by <a href="https://www.youtube.com/ronaldjenkees">ronald jenkees</a></p>
+                    <p>Exclusively on <a href="https://www.airconsole.com/">airconsole.com</a></p>
+                    <div id="button" class = "PlayButton" style="position:relative; top:3em; width:6em; height:2em; margin-left:auto; margin-right:auto;">
+                    
+                    	<a  href="https://www.airconsole.com#https://storage.googleapis.com/com.juancallejas.spacebotknights.cdn.airconsole.com/2016-08-10-22-57-45/">
+                        	
+                            <span class="LinkOverlay"></span>
+                            
+                        </a>
+                    
+                        <div style="position:relative; padding-top:0.65em">
+                        
+                            play now
+                        
+                        </div>
+                        
+                    </div>
+                
+               		<script type="text/javascript">
+					
+						$("#button").mouseenter(function() {
+							
+							$("#button").addClass("Highlighted");
+							
+						});
+					
+						$("#button").mouseleave(function() {
+							
+							$("#button").removeClass("Highlighted");
+							
+						});
+					
+					</script>
+                    
+              </header>
+
+				<!-- Footer -->
+                
+              <footer id="footer">
+                <span class="copyright">&copy; <a href="../">Halfcloud interactive</a>.</span>
+                <span class="copyright">Web template by <a href="http://html5up.net">HTML5 up</a></span>
+              </footer>
+
+			</div>
+		</div>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script>
+			window.onload = function() { document.body.className = ''; }
+			window.ontouchmove = function() { return false; }
+			window.onorientationchange = function() { document.body.scrollTop = 0; }
+		</script>
+	</body>
+</html>
