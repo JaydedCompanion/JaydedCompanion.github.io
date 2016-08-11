@@ -32,6 +32,18 @@
 		width:50%;
 		
 	}
+
+	#LockBottom {
+		
+		position:absolute;
+		
+		left:5%;
+		
+		bottom:0px;
+		
+		width:50%;
+		
+	}
 	
 	.PlayButton {
 		
