@@ -27,10 +27,10 @@
         width: 200px;
         margin-left: -100px;
         left: 50%;
-        height: 2px;
+        height: 10px;
         display: block;
-        background-color: #333;
-        border-radius: 2px;
+        border-radius: 10px;
+		border: 2px solid #FFFFFF;
       }
       
       div#progressBar {
@@ -38,20 +38,20 @@
       position: absolute;
       margin-left: -100px;
       width: 0px;
-      height: 2px;
+      height: 10px;
       background-color: white;
-      border-radius: 2px;
+      border-radius: 10px;
       }
         
       p#loadingInfo {
-      color: #666;
+      color: #FFFFFF;
       letter-spacing: 1px;
       position: absolute;
       width: 100%;
-      font-family: "Monaco", sans-serif;
+      font-family: 'Junegull', sans-serif;
       text-transform: uppercase;
       text-align: center;
-      font-size: 8px;
+      font-size: 14px;
       margin-top: 10px;
       }
     </style>
@@ -62,12 +62,20 @@
     <script type="text/javascript" src="TemplateData/CSSPlugin.js"></script>
   </head>
   <body class="template" onload="initAirConsole()">
+    
+    <img src="images/char.b.png" id = "LockBottom">
+    
+    <img src="images/char.l.png" id = "LockLeft">
+    
+    <img src="images/char.r.png" id = "LockRight">
+            
     <div class="template-wrap clear">
     <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="1080px" width="1920px"></canvas>
       <div id = "loadingBox">
        <div id = "bgBar"></div>
        <div id = "progressBar"></div>
        <img id="spinner" src="TemplateData/gifLoader.gif" style="display: none; margin: 0 auto" />
+       <br>
        <p id="loadingInfo">Loading...</p>
      </div>
     </div>

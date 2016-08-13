@@ -109,40 +109,177 @@
         
         <script type="text/javascript">
             
+            // Sets the background of an element
+            function setElementImg(element, url) {
+                element.css("background-image", url);
+            }
+            
             var airconsole = new AirConsole({orientation: AirConsole.ORIENTATION_LANDSCAPE});
             
             //Assign Hue of Coloured Highlights According to Message
             
             airconsole.onMessage = function (device_id, data) {
                 
+                console.log (data);
+                    
+                var big_button_elements = $(".undefined");
+
+                var joystick_element = $(".joystick-relative-stick");
+
+                var PlayerID;
+                var PlayerID_Prev;
+                var OnStartSprite;
+                
+                var imgURL;
+                
                 var DisectedData = "";
                 var DataString = data.toString();
                 var DataBits = DataString.split(".");
                 
-                if (DataBits[0] = "HSV") {
+                if (DataBits[0] === "DeviceRegister" && DataBits[1] === "Ping") {
                     
-                    //Separate the different components of the message data
-
-                    for (i = 0; i < DataBits.length; i ++) {
-                        DisectedData += DataBits[i] + ", ";
-                    }
+                    console.log("Received device register ping request from screen");
+                    
+                    airconsole.message (
+                        device_id, 
+                        ({
+                            "DeviceRegister": "PingReply"
+                        })
+                    );
+                    
+                } else if (DataBits[0] === "PlayerID") {
+                    
+                    PlayerID_Prev = PlayerID;
+                    
+                    PlayerID = DataBits[1];
+                    
+                }
                 
-                    //console.log (("Original: " + DataString + ", Disected: " + DisectedData));
-            
-                    var button_elements = $(".button-300-150");
-                    var big_button_elements = $(".undefined");
-                    var joystick_element =  $(".joystick");
+                //Detect delta differences in the playerID
+                if (PlayerID != PlayerID_Prev) {
                     
-                    var playerHue = DataBits[1];
-                    var playerSaturation = DataBits[2];
-                    var playerValue = DataBits[3];
-
-                    big_button_elements.css("-webkit-filter", "hue-rotate(" + playerHue + "deg) saturate(" + playerSaturation + "%) brightness(" + playerValue + "%)");
-
-                    button_elements.css("-webkit-filter", "hue-rotate(" + playerHue + "deg) saturate(" + playerSaturation + "%) brightness(" + playerValue + "%)");
-
-                    joystick_element.css("-webkit-filter", "hue-rotate(" + playerHue + "deg) saturate(" + playerSaturation + "%) brightness(" + playerValue + "%)");
+                    OnStartSprite = true;
                     
+                }
+                    
+                if (PlayerID == 0) {
+                    
+                    if (OnStartSprite) {
+                        
+                        imgURL = 'url(airconsole-controls/button/button-300-300.6.png)';
+                        
+                        OnStartSprite = false;
+                        
+                    }
+
+                    console.log("Player ID is 0, will set to default");
+
+                    // Set active image when somone touches the element
+                    big_button_elements.on('mousedown touchstart', function() {
+                        imgURL = 'url(airconsole-controls/button/button-300-300-active.6.png)';
+                    });
+
+                    // Back to default:
+                    big_button_elements.on('mouseup touchend', function() {
+                        imgURL = 'url(airconsole-controls/button/button-300-300.6.png)';
+                    });
+
+                    // update img:
+                    big_button_elements.on('mousedown touchstart mouseup touchend', function() {
+                        setElementImg(big_button_elements, imgURL);
+                    });
+
+                    joystick_element.css("background-image", 'url(airconsole-controls/joystick/joystick-stick.6.png)');
+
+                } else if (PlayerID == 100) {
+                    
+                    if (OnStartSprite) {
+                        
+                        imgURL = 'url(airconsole-controls/button/button-300-300.select.png)';
+                        
+                        OnStartSprite = false;
+                        
+                    }
+                    
+                    //Code player 100 means that the current controller is in charge of selecting the mode and length of the game
+
+                    console.log("Player ID is 100, will set to master sprites");
+
+                    // Set active image when somone touches the element
+                    big_button_elements.on('mousedown touchstart', function() {
+                        imgURL = 'url(airconsole-controls/button/button-300-300-active.select.png)';
+                    });
+
+                    // Back to default:
+                    big_button_elements.on('mouseup touchend', function() {
+                        imgURL = 'url(airconsole-controls/button/button-300-300.select.png)';
+                    });
+
+                    // update img:
+                    big_button_elements.on('mousedown touchstart mouseup touchend', function() {
+                        setElementImg(big_button_elements, imgURL);
+                    });
+
+                    joystick_element.css("background-image", 'url(airconsole-controls/joystick/joystick-stick.png)');
+                    
+                } else if (PlayerID >= 1 && PlayerID <= 6) {
+                    
+                    if (OnStartSprite) {
+                        
+                        imgURL = 'url(airconsole-controls/button/button-300-300.' + PlayerID + '.png)';
+                        
+                        OnStartSprite = false;
+                        
+                    }
+
+                    // Set active image when somone touches the element
+                    big_button_elements.on('mousedown touchstart', function() {
+                        imgURL = 'url(airconsole-controls/button/button-300-300-active.' + PlayerID + '.png)';
+                    });
+
+                    // Back to default:
+                    big_button_elements.on('mouseup touchend', function() {
+                        imgURL = 'url(airconsole-controls/button/button-300-300.' + PlayerID + '.png)';
+                    });
+
+                    // update img:
+                    big_button_elements.on('mousedown touchstart mouseup touchend', function() {
+                        setElementImg(big_button_elements, imgURL);
+                    });
+
+                    joystick_element.css("background-image", 'url(airconsole-controls/joystick/joystick-stick.' + PlayerID + '.png)');
+
+                }
+                
+                setElementImg(big_button_elements, imgURL);
+                
+                if (DataBits[0] == "RGB") {
+                    
+                    console.log("Using color values is now deprecated. Please send a played ID instead");
+                    
+//                    
+//                    //Separate the different components of the message data
+//
+//                    for (i = 0; i < DataBits.length; i ++) {
+//                        DisectedData += DataBits[i] + ", ";
+//                    }
+//                
+//                    console.log (("Original: " + DataString + ", Disected: " + DisectedData));
+//            
+//                    var button_elements = $(".button-300-150");
+//                    var big_button_elements = $(".undefined");
+//                    var joystick_element =  $(".joystick");
+//                    
+//                    var R = DataBits[1];
+//                    var G = DataBits[2];
+//                    var B = DataBits[3];
+//
+//                    big_button_elements.css("background-color", "rgba(" + R + "," + G + "," + B + ")");
+//
+//                    button_elements.css("background-color", "rgba(" + R + "," + G + "," + B + ")");
+//
+//                    joystick_element.css("background-color", "rgba(" + R + "," + G + "," + B + ")");
+//                    
                 }
                 
             }

@@ -7,8 +7,7 @@
     background-color: black;
     background: url(joystick-bg.png) no-repeat center center;
     background-size: contain;
-    
-    -webkit-filter: hue-rotate(208deg) saturate(0%) brightness(100%);
+    background-blend-mode: multiply;
 }
 
 .joystick-relative {
@@ -24,11 +23,10 @@
     width: 50%;
     height: 0;
     padding-bottom: 50%;
-    background: url(joystick-stick.png) no-repeat center center;
+    background-image: url('joystick-stick.png');
     background-size: contain;
 /*
     border-radius: 140%;
-    background-color: #000000;
     border: 3px solid #ff0000;
 */
     margin-left: -25%;

@@ -1,0 +1,106 @@
+.button-300-150 {
+    background-image: url('button-300-150.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    
+    -webkit-filter: hue-rotate(208deg) saturate(0%) brightness(100%);
+}
+
+.button-300-150.button-active {
+    background-image: url('button-300-150-active.png');
+}
+
+
+
+.button-300-150:nth-child(1) {
+    background-image: url('button-300-150-attack.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.button-300-150.button-active:nth-child(1) {
+    background-image: url('button-300-150-attack-active.png');
+}
+
+.button-300-150:nth-child(2) {
+    background-image: url('button-300-150-thrust.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.button-300-150.button-active:nth-child(2) {
+    background-image: url('button-300-150-thrust-active.png');
+}
+
+
+
+.button-300-150.button-active .button-text {
+    color: black;
+}
+
+.undefined {
+    background-image: url('button-300-300.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    
+    -webkit-filter: hue-rotate(208deg) saturate(0%) brightness(100%);
+}
+
+.undefined.button-active {
+    background-image: url('button-300-300-active.png');
+}
+
+.button-300-300.button-active .button-text {
+    color: white;
+}
+
+.button-80:nth-child(1) {
+    background-image: url('button-80-restart.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.button-80.button-active:nth-child(1) {
+    background-image: url('button-80-restart-active.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.button-80:nth-child(2) {
+    background-image: url('button-80-pause.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.button-80.button-active:nth-child(2) {
+    background-image: url('button-80-pause-active.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.button-80.button-active .button-text {
+    color: white;
+}
+
+
+.button-80 .button-text {
+    color: white;
+}
+
+.button-text {
+    width: 100%;
+    top: 50%;
+    margin-top: -0.5em;
+    position: absolute;
+    text-align: center;
+    color: white;
+}
+
