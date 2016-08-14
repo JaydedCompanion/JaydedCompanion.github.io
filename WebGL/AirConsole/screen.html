@@ -12,7 +12,7 @@
       https://ocias.com/
       https://ocias.com/blog/unity-webgl-custom-progress-bar/ 
      -->
-     <style type=text/css>
+     <style type="text/css">
       div#loadingBox {
         width: 100%;
         height: 20px;
@@ -27,10 +27,10 @@
         width: 200px;
         margin-left: -100px;
         left: 50%;
-        height: 2px;
+        height: 10px;
         display: block;
-        background-color: #333;
-        border-radius: 2px;
+		border-radius: 10px;
+		border: 2px solid #FFFFFF;
       }
       
       div#progressBar {
@@ -38,22 +38,23 @@
       position: absolute;
       margin-left: -100px;
       width: 0px;
-      height: 2px;
+      height: 14px;
+	  border-radius: 14px;
       background-color: white;
-      border-radius: 2px;
       }
         
       p#loadingInfo {
-      color: #666;
+      color: #fff;
       letter-spacing: 1px;
       position: absolute;
       width: 100%;
-      font-family: "Monaco", sans-serif;
+      font-family: "Junegull", sans-serif;
       text-transform: uppercase;
       text-align: center;
-      font-size: 8px;
+      font-size: 16px;
       margin-top: 10px;
       }
+	  
     </style>
     <script type="text/javascript" src="https://www.airconsole.com/api/airconsole-1.5.0.js"></script>
     <script type="text/javascript" src="./airconsole-unity-plugin.js"></script>
@@ -68,6 +69,7 @@
        <div id = "bgBar"></div>
        <div id = "progressBar"></div>
        <img id="spinner" src="TemplateData/gifLoader.gif" style="display: none; margin: 0 auto" />
+       <br>
        <p id="loadingInfo">Loading...</p>
      </div>
     </div>

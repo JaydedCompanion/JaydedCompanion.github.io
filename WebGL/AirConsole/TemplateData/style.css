@@ -65,10 +65,12 @@ html, body {
 	height: 100%; 
 	font-family: 'Junegull', Helvetica, Verdana, Arial, sans-serif; 
 	background-image: url(../images/BG.ABS.png);
+/*
 	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
   	background-size: cover;
+*/
 }
 
 body { }
