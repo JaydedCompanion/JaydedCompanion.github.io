@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-    <title>%UNITY_WEB_NAME%</title>
+    <title>SpaceBot Knights</title>
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="shortcut icon" href="TemplateData/favicon.ico" />
     <!--
@@ -64,7 +64,7 @@
   </head>
   <body class="template" onload="initAirConsole()">
     <div class="template-wrap clear">
-    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="%UNITY_HEIGHT%px" width="%UNITY_WIDTH%px"></canvas>
+    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="1080px" width="1920px"></canvas>
       <div id = "loadingBox">
        <div id = "bgBar"></div>
        <div id = "progressBar"></div>
@@ -73,6 +73,18 @@
        <p id="loadingInfo">Loading...</p>
      </div>
     </div>
-    %UNITY_WEBGL_LOADER_GLUE%
+    <script type='text/javascript'>
+  var Module = {
+    TOTAL_MEMORY: 268435456,
+    errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
+    compatibilitycheck: null,
+    dataUrl: "Release/AirConsole.data",
+    codeUrl: "Release/AirConsole.js",
+    memUrl: "Release/AirConsole.mem",
+    
+  };
+</script>
+<script src="Release/UnityLoader.js"></script>
+
   </body>
 </html>
