@@ -83,8 +83,19 @@
 		 make sure you have an empty gif */
 		background-image: url('empty.gif');
 		
-	}   
+	} 
 
+	@font-face{ 
+		font-family: 'Junegull';
+		src: url('Junegull.eot');
+		src: url('Junegull.eot?#iefix') format('embedded-opentype'),
+			 url('Junegull.woff') format('woff'),
+			 url('Junegull.ttf') format('truetype'),
+			 url('Junegull.svg#webfont') format('svg');
+	}  
+	
+	
+	
 /* Reset */
 
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -136,18 +147,9 @@
 
 /* Basic */
 
-	@font-face{ 
-		font-family: 'Junegull';
-		src: url('Junegull.eot');
-		src: url('Junegull.eot?#iefix') format('embedded-opentype'),
-			 url('Junegull.woff') format('woff'),
-			 url('Junegull.ttf') format('truetype'),
-			 url('Junegull.svg#webfont') format('svg');
-	}
-
 	body, input, select, textarea {
 		color: #fff;
-		font-family: 'Junegull', sans-serif;
+		font-family: 'Junegull', 'Source Sans Pro', sans-serif;
 		font-size: 15pt;
 		font-weight: 300 !important;
 		letter-spacing: -0.025em;
@@ -274,8 +276,7 @@
 		transform: translate3d(0,0,0);
 	/* Set your background with this */
 
-		background: #348cb2 url("images/bg.jpg") bottom left;
-		background-repeat: repeat-x;
+		background: #1b1e23 url("images/bg.jpg") bottom left;
 		height: 100%;
 		left: 0;
 		opacity: 1;
@@ -349,6 +350,7 @@
 
 	#bg {
 		background-size: 2250px auto;
+		width: 6750px;
 	}
 
 /* Overlay */
@@ -1018,6 +1020,11 @@
 			}
 		}
 
+		#bg {
+			background-size: 300px auto;
+			width: 900px;
+		}
+
 	/* Header */
 
 		#header h1 {
@@ -1109,6 +1116,11 @@
 				-ms-transform: translate3d(-412.5px,0,0);
 				transform: translate3d(-412.5px,0,0);
 			}
+		}
+
+		#bg {
+			background-size: 412.5px auto;
+			width: 1237.5px;
 		}
 
 	/* Header */
