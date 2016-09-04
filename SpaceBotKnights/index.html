@@ -36,7 +36,8 @@
                     <p>The second game by Halfcloud</p>
                     <p>with music by <a href="https://www.youtube.com/ronaldjenkees">ronald jenkees</a></p>
                     <p>Exclusively on <a href="https://www.airconsole.com/">airconsole.com</a></p>
-                    <div id="button" class = "PlayButton" style="position:relative; top:3em; width:6em; height:2em; margin-left:auto; margin-right:auto;">
+                    
+                    <div class = "PlayButton" style="position:relative; top:3em; width:6em; height:2em; margin-left:auto; margin-right:auto;">
                     
                     	<a  href="https://www.airconsole.com/#!play=com.juancallejas.spacebotknights">
                         	
@@ -46,7 +47,25 @@
                     
                         <div style="position:relative; padding-top:0.65em">
                         
-                            play now
+                            play  now
+                        
+                        </div>
+                        
+                    </div>
+                    
+                    <br> 
+                    
+                    <div class = "PlayButton" style="position:relative; top:3em; width:6em; height:2em; margin-left:auto; margin-right:auto;">
+                    
+                    	<a  href="https://play.google.com/store/apps/details?id=com.juancallejas.spacebotknights">
+                        	
+                            <span class="LinkOverlay"></span>
+                            
+                        </a>
+                    
+                        <div style="position:relative; padding-top:0.65em">
+                        
+                            android tv
                         
                         </div>
                         
@@ -54,15 +73,15 @@
                 
                		<script type="text/javascript">
 					
-						$("#button").mouseenter(function() {
+						$(".PlayButton").mouseenter(function() {
 							
-							$("#button").addClass("Highlighted");
+							$(this).addClass("Highlighted");
 							
-						});
+						}); 
 					
-						$("#button").mouseleave(function() {
+						$(".PlayButton").mouseleave(function() {
 							
-							$("#button").removeClass("Highlighted");
+							$(this).removeClass("Highlighted");
 							
 						});
 					
