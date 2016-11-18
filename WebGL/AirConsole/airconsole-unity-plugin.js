@@ -1,6 +1,6 @@
 /**
  * Copyright by N-Dream AG 2016.
- * @version 1.5
+ * @version 1.6
  */
 
 /**
@@ -10,7 +10,7 @@
 var is_editor = false;
 var is_web_view = false;
 var is_unity_ready = false;
-var ignore_resize = false;
+var top_bar_height = window.outerHeight - window.innerHeight;
 
 function getURLParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -25,21 +25,13 @@ if (wsPort) {
 }
 
 if (typeof Unity != "undefined") {
-    var top_bar_height = window.outerHeight - window.innerHeight;
     is_web_view = true;
     is_unity_ready = true;
     window.onbeforeunload = function() {
         Unity.call(JSON.stringify({"action": "onGameEnd"}));
-        ignore_resize = true;
     };
-    function layout() {
-        if (!ignore_resize) {
-            Unity.call(JSON.stringify({"action": "onUnityWebviewResize",
+    Unity.call(JSON.stringify({"action": "onUnityWebviewResize",
                                     "top_bar_height": top_bar_height }));
-        }
-    }
-    window.addEventListener('resize', layout);
-    layout();
     // forward WebView postMessage data from parent window
     window.addEventListener('message', function (event) {
         if (event.data["action"] == "androidunity") {
@@ -159,14 +151,12 @@ function App() {
         };
         
         me.airconsole.onAdShow = function() {
-            ignore_resize = true;
             me.postToUnity({
                 "action": "onAdShow"
             });
         };
         
         me.airconsole.onAdComplete = function(ad_was_shown) {
-            ignore_resize = false;
             me.postToUnity({
                 "action": "onAdComplete",
                 "ad_was_shown": ad_was_shown
@@ -184,6 +174,27 @@ function App() {
             me.postToUnity({
                 "action": "onHighScoreStored",
                 "highscore": highscore
+            });
+        };
+
+        me.airconsole.onPersistentDataStored = function(uid) {
+            me.postToUnity({
+                "action": "onPersistentDataStored",
+                "uid": uid
+            });
+        };
+
+         me.airconsole.onPersistentDataLoaded = function(data) {
+            me.postToUnity({
+                "action": "onPersistentDataLoaded",
+                "data": data
+            });
+        };
+
+        me.airconsole.onPremium = function(device_id) {
+            me.postToUnity({
+                "action": "onPremium",
+                "device_id": device_id
             });
         };
     }
@@ -219,10 +230,12 @@ function App() {
 };
 
 App.prototype.postQueue = function () {
-    for (var i = 0; i < this.queue.length; ++i) {
-      this.postToUnity(this.queue[i]);
-	}
-	this.queue = false;
+    if (this.queue !== false) {
+        for (var i = 0; i < this.queue.length; ++i) {
+        this.postToUnity(this.queue[i]);
+        }
+        this.queue = false;
+    }
 }
 
 App.prototype.postToUnity = function (data) {
@@ -260,6 +273,10 @@ App.prototype.processUnityData = function (data) {
         this.airconsole.setCustomDeviceStateProperty(data.key, data.value);
     } else if (data.action == "showDefaultUI") {
         this.airconsole.showDefaultUI(data.data);
+        if (is_web_view) {
+          Unity.call(JSON.stringify({"action": "onUnityWebviewResize",
+                                     "top_bar_height": data.data ? top_bar_height : 0}));
+        }
     } else if (data.action == "navigateHome") {
         this.airconsole.navigateHome();
     } else if (data.action == "navigateTo") {
@@ -269,9 +286,13 @@ App.prototype.processUnityData = function (data) {
     } else if (data.action == "showAd") {
         this.airconsole.showAd();
     } else if (data.action == "requestHighScores") {
-        this.airconsole.requestHighScores(data.level_name, data.level_version, data.uids);
+        this.airconsole.requestHighScores(data.level_name, data.level_version, data.uids, data.ranks, data.total, data.top);
     } else if (data.action == "storeHighScore") {
         this.airconsole.storeHighScore(data.level_name, data.level_version, data.score, data.uid, data.data, data.score_string);
+    } else if (data.action == "requestPersistentData") {
+        this.airconsole.requestPersistentData(data.uids);
+    } else if (data.action == "storePersistentData") {
+        this.airconsole.storePersistentData(data.key, data.value, data.uid);
     } else if (data.action == "debug") {
         console.log("debug message:", data.data);
     }
@@ -299,8 +320,10 @@ function onGameReady(autoScale) {
         unityCanvas.style.right = '0';
     }
 
-    // send cached onRadyData
-    window.app.postQueue();
+    // send cached onReadyData
+    if (window.app) {
+      window.app.postQueue();
+    }
 
     if (autoScale) {
         resizeCanvas();
