@@ -9,6 +9,16 @@
 
 /* Custom */
 
+.staticBanner {
+	position: relative;
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+	color: #fff;
+	text-align: center;
+	cursor: default;
+}
+
 #HorizontalContainer {
   text-align: justify;
   width:80%; 
