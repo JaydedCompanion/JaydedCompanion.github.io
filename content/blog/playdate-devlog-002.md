@@ -81,7 +81,7 @@ And, just like that, you've got a Playdate game that spits out a string to the c
 
 I (eventually) got a build to work using Make, but there were many issues where I either just stumbled upon the solution, or had someone smarter than me figure out the problem (shoutouts to my good friend Jay!) I will mention, however, that one of the issues I ran into came from Make creating a **file** called "Source", instead of a **folder**. If you're trying to use Make to build your Playdate game and are getting an error, check your project and ensure you have a Source folder, and not a file:
 
-```tree
+```text
 MyPlaydateProject/
 ├─ build/
 ├─ MyPlaydateProject.pdx/
